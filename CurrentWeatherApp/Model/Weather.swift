@@ -14,10 +14,16 @@ class Weather {
     var weather: [String: Any]? = nil
     var weatherDescription: String? = nil
     
+    static var mainCity: String? {
+        didSet {
+            UserDefaults.standard.set(mainCity, forKey: "MainCity")
+        }
+    }
     
     func kelvinToCels(temp: Double) -> Double {
         let newTemp = temp - 273.15
         return newTemp
     }
+    
     
 }

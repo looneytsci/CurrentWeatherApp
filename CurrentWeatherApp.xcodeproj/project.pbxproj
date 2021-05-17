@@ -15,6 +15,7 @@
 		5B2DE0D42652703700209A8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2DE0D22652703700209A8F /* LaunchScreen.storyboard */; };
 		5B2DE0E12652711600209A8F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DE0E02652711600209A8F /* NetworkManager.swift */; };
 		5B2DE0E32652744500209A8F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DE0E22652744500209A8F /* Weather.swift */; };
+		5B622223265301940092D011 /* button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B622222265301940092D011 /* button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5B2DE0D52652703700209A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B2DE0E02652711600209A8F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B2DE0E22652744500209A8F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		5B622222265301940092D011 /* button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				5B2DE0CD2652703500209A8F /* Main.storyboard */,
 				5B2DE0D22652703700209A8F /* LaunchScreen.storyboard */,
+				5B622222265301940092D011 /* button.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				5B2DE0C82652703500209A8F /* AppDelegate.swift in Sources */,
 				5B2DE0CA2652703500209A8F /* SceneDelegate.swift in Sources */,
 				5B2DE0E32652744500209A8F /* Weather.swift in Sources */,
+				5B622223265301940092D011 /* button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,12 +26,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var addMainCityButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField.delegate = self
-        fetchData(on: "petersburg")
+        
+        
+        if let city = UserDefaults.standard.string(forKey: "MainCity") {
+            print(city)
+            fetchData(on: city)
+        } else {
+            fetchData(on: "petersburg")
+        }
+        
+        
     }
     
     // MARK: @IB Actions
@@ -49,11 +60,50 @@ class ViewController: UIViewController {
         textField.text = ""
     }
     
+    @IBAction func addMainCity(_ sender: UIButton) {
+        
+        
+        let city = cityName.text
+        if let mainCity = UserDefaults.standard.string(forKey: "MainCity") {
+            if city == mainCity {
+                statusLabel.textColor = .red
+                statusLabel.text = "Город уже установлен как основной"
+                
+                UIView.animate(withDuration: 1) { [weak self] in
+                    self?.statusLabel.alpha = 1
+                } completion: { [weak self] _ in
+                    UIView.animate(withDuration: 1) {
+                        self?.statusLabel.alpha = 0
+                    }
+
+                }
+
+            } else {
+                statusLabel.textColor = .white
+                guard let city = city else { return }
+                statusLabel.text = "\(city) теперь основной город!"
+                Weather.mainCity = city
+                UIView.animate(withDuration: 1) { [weak self] in
+                    self?.statusLabel.alpha = 1
+                } completion: { [weak self] _ in
+                    UIView.animate(withDuration: 1) {
+                        self?.statusLabel.alpha = 0
+                    }
+                }
+                
+                
+
+            }
+        }
+        
+        
+        
+    }
     
     // MARK: Networking
     
     func fetchData(on city: String) {
-        let startUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7b843178730ba2c68fc10a5ff17023d3&lang=ru"
+        let startUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7b843178730ba2c68fc10a5ff17023d3"
         NetworkManager.fetchData(url: startUrl) { [weak self] weather in
             DispatchQueue.main.async {
                 guard let temp = weather.main?["temp"],

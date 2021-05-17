@@ -83,6 +83,26 @@
                                     <action selector="searchCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSS-9g-GI6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpq-UR-P2i">
+                                <rect key="frame" x="57" y="739.5" width="300" height="41"/>
+                                <color key="backgroundColor" red="0.14606373086373697" green="0.59084754937671147" blue="0.81031567222112599" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="pwv-QP-SE5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <state key="normal" title="Сделать город основным">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMainCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FU2-dZ-YG3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error or norm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5g-3o-hBC">
+                                <rect key="frame" x="158.5" y="714" width="97" height="20.5"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,20 +111,26 @@
                             <constraint firstAttribute="bottom" secondItem="F9H-kl-D3q" secondAttribute="bottom" id="8al-RC-L4f"/>
                             <constraint firstItem="Hec-ja-BSH" firstAttribute="centerX" secondItem="F9H-kl-D3q" secondAttribute="centerX" id="8yD-nn-90V"/>
                             <constraint firstItem="2ha-QJ-ozw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="ER6-lZ-S6r"/>
+                            <constraint firstItem="A5g-3o-hBC" firstAttribute="top" secondItem="Hec-ja-BSH" secondAttribute="bottom" constant="11" id="Ej6-eC-jB2"/>
+                            <constraint firstItem="A5g-3o-hBC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GrA-8V-okx"/>
                             <constraint firstItem="PE5-xX-R9S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="IgS-JY-ZDh"/>
                             <constraint firstItem="F9H-kl-D3q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kww-OV-R0y"/>
                             <constraint firstItem="a0d-pF-cIO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="Rv4-pt-hG4"/>
+                            <constraint firstItem="Tpq-UR-P2i" firstAttribute="top" secondItem="A5g-3o-hBC" secondAttribute="bottom" constant="5" id="Vlh-Gt-76B"/>
                             <constraint firstItem="PE5-xX-R9S" firstAttribute="leading" secondItem="a0d-pF-cIO" secondAttribute="trailing" constant="15" id="eYG-w8-ndF"/>
                             <constraint firstItem="2ha-QJ-ozw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="gO7-Jr-Sdc"/>
                             <constraint firstItem="F9H-kl-D3q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gzq-n0-vhJ"/>
                             <constraint firstItem="a0d-pF-cIO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="mr6-4B-jmi"/>
+                            <constraint firstItem="Tpq-UR-P2i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rqO-pf-Tn2"/>
                             <constraint firstItem="F9H-kl-D3q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="t1b-TQ-a5B"/>
                             <constraint firstItem="Hec-ja-BSH" firstAttribute="top" secondItem="2ha-QJ-ozw" secondAttribute="bottom" constant="29" id="t7u-qj-qox"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addMainCityButton" destination="Tpq-UR-P2i" id="pxw-wJ-Qtg"/>
                         <outlet property="cityName" destination="8RR-sn-PRn" id="88j-Zs-cuS"/>
                         <outlet property="desciptionLabel" destination="fhy-Tp-JuQ" id="Pml-r6-odi"/>
+                        <outlet property="statusLabel" destination="A5g-3o-hBC" id="Ddd-Mc-ML8"/>
                         <outlet property="tempLabel" destination="yZP-4s-CqV" id="tKa-DL-VRg"/>
                         <outlet property="textField" destination="a0d-pF-cIO" id="Tzb-Ia-nDO"/>
                         <outlet property="weatherImage" destination="Hec-ja-BSH" id="mAu-Ls-jKg"/>
