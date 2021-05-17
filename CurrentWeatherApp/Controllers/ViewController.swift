@@ -63,12 +63,12 @@ class ViewController: UIViewController {
     @IBAction func addMainCity(_ sender: UIButton) {
         
         
-        let city = cityName.text
+        guard let city = cityName.text else { return }
         if let mainCity = UserDefaults.standard.string(forKey: "MainCity") {
             if city == mainCity {
                 statusLabel.textColor = .red
                 statusLabel.text = "Город уже установлен как основной"
-                
+                print("город уже установлен")
                 UIView.animate(withDuration: 1) { [weak self] in
                     self?.statusLabel.alpha = 1
                 } completion: { [weak self] _ in
@@ -79,25 +79,11 @@ class ViewController: UIViewController {
                 }
 
             } else {
-                statusLabel.textColor = .white
-                guard let city = city else { return }
-                statusLabel.text = "\(city) теперь основной город!"
-                Weather.mainCity = city
-                UIView.animate(withDuration: 1) { [weak self] in
-                    self?.statusLabel.alpha = 1
-                } completion: { [weak self] _ in
-                    UIView.animate(withDuration: 1) {
-                        self?.statusLabel.alpha = 0
-                    }
-                }
-                
-                
-
+                addCityWithAnimation(with: city)
             }
+        } else {
+            addCityWithAnimation(with: city)
         }
-        
-        
-        
     }
     
     // MARK: Networking

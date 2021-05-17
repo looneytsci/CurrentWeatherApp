@@ -20,3 +20,19 @@ extension ViewController {
         statusLabel.alpha = 0
     }
 }
+
+extension ViewController {
+    func addCityWithAnimation(with city: String) {
+        statusLabel.textColor = .white
+        statusLabel.text = "\(city) теперь основной город!"
+        Weather.mainCity = city
+        print("новый город установлен")
+        UIView.animate(withDuration: 1) { [weak self] in
+            self?.statusLabel.alpha = 1
+        } completion: { [weak self] _ in
+            UIView.animate(withDuration: 1) {
+                self?.statusLabel.alpha = 0
+            }
+        }
+    }
+}
