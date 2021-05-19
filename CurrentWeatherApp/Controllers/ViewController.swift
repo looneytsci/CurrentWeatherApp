@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum weatherType: String {
     case Thunderstome = "cloud.bolt"
@@ -20,6 +21,7 @@ enum weatherType: String {
 class ViewController: UIViewController {
 
     var weather: Weather?
+    var locationCity: String?
     
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var desciptionLabel: UILabel!
@@ -29,20 +31,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var addMainCityButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
     
+    var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.delegate = self
+        setupLocationManager()
         
+        textField.delegate = self
         
         if let city = UserDefaults.standard.string(forKey: "MainCity") {
             print(city)
             fetchData(on: city)
-        } else {
-            fetchData(on: "petersburg")
+        } else if let city = locationCity {
+            fetchData(on: city)
         }
-        
-        
     }
     
     // MARK: @IB Actions
@@ -89,7 +92,7 @@ class ViewController: UIViewController {
     // MARK: Networking
     
     func fetchData(on city: String) {
-        let startUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7b843178730ba2c68fc10a5ff17023d3"
+        let startUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7b843178730ba2c68fc10a5ff17023d3&lang=ru"
         NetworkManager.fetchData(url: startUrl) { [weak self] weather in
             DispatchQueue.main.async {
                 guard let temp = weather.main?["temp"],
@@ -162,4 +165,3 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
 }
-

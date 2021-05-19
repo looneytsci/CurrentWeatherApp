@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkManager {
     
-    private let apiKey = "7b843178730ba2c68fc10a5ff17023d3"
+    private let apiKey = "79a6e76b8cc792d8ccbacc352e6a696d"
     
     static func fetchData(url: String, completion: @escaping (_ weather: Weather) -> ()) {
         guard let url = URL(string: url) else {

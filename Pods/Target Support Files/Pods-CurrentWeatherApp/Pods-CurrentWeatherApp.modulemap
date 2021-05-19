@@ -1,0 +1,6 @@
+framework module Pods_CurrentWeatherApp {
+  umbrella header "Pods-CurrentWeatherApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
